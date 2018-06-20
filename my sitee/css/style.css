@@ -81,10 +81,9 @@ div p:hover {
 	color: grey;
 	font-size: 70px;
   margin-left: 50px !important;
-
-	
-
 }
+
+
 .head:hover{
 	color: teal;
 }
@@ -105,7 +104,7 @@ right: 0;
 top: 0;
 display: block;
 
- background-image: url("tree.jpg");
+ background-image: url("mat1.jpg");
  background-size:cover;
  transform-origin: center center 0;
 transform: translateZ(-1px) scale(2);

@@ -6,21 +6,32 @@
  * Made By MaterializeCSS.com
  */
 body{
-  background-color: #b2dfdb;
+  background-color: #b2dfdb !important;
 }
+
+ .down{
+  margin-top: 100px;
+  position: relative;
+ }
 
 .left{
   float: left!important;
 }
 .fontstyle{
-  font-family: 'Dosis', cursive;
+ font-family: 'Quicksand', sans-serif;
  /*font-family: 'Sedgwick Ave Display', cursive;*/
- font-weight: bolder;
+ 
  font-size: 50px;
 }
 .fontstyle1{
  font-family: 'Dosis', cursive; 
+ 
  font-weight: bold;
+}
+.fontstyle2{
+ font-family: 'Dosis', cursive; 
+ 
+ letter-spacing: 0.2em;
 }
 .size1{
   height: 1000px !important;
@@ -63,6 +74,9 @@ p {
     top: 10%;
   }
 }
+.color{
+  
+}
 
 @media only screen and (max-width : 600px) {
   #index-banner .section {
@@ -79,4 +93,13 @@ p {
 
 footer.page-footer {
   margin: 0;
+}
+
+@font-face {
+font-family: "Simplifica";
+src: url("css/fonts/SIMPLIFICA Typeface.eot");
+src: 
+url("css/Simplifica/SIMPLIFICA Typeface.woff") format("woff"),
+url("css/Simplifica/SIMPLIFICA Typeface.otf") format("opentype"),
+url("css/Simplifica/SIMPLIFICA Typeface.svg#filename") format("svg");
 }
