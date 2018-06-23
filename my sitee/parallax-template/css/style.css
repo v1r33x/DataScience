@@ -1,12 +1,10 @@
-/* Custom Stylesheet */
-/**
- * Use this file to override Materialize files so you can update
- * the core Materialize files in the future
- *
- * Made By MaterializeCSS.com
- */
+
+
 body{
-  background-color: #b2dfdb !important;
+  background-color: #006064 !important;
+}
+.micku-back1{
+  background-color: #006064 !important;
 }
 
  .down{
@@ -39,7 +37,10 @@ body{
 
 nav ul a,
 nav .brand-logo {
-  color: #444;
+  color: white;
+  font-family: 'Dosis';
+  font-size: 40px;
+  font-weight: bolder;
 }
 .vcenter{
   vertical-align: center;
