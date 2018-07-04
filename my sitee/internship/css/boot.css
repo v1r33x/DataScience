@@ -5419,7 +5419,7 @@ button.list-group-item-warning.active:focus {
   background-color: #f2dede;
 }
 a.list-group-item-danger,
-button.list-group-item-danger {
+.list-group-item-danger {
   color: #a94442;
 }
 a.list-group-item-danger .list-group-item-heading,
