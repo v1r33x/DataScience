@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+<title>Full Page Slider</title>
+
+<style type="text/css">
+html {
+    min-width: 800px;
+}
+#full-slider-wrapper {
+    overflow: hidden;
+}
+#full-slider {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    margin: 0 auto;
+}
+#full-slider .slide-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 800px;
+    height: 600px;
+    visibility: hidden;
+}
+#full-slider .slide-panel.active {
+    visibility: visible;
+}
+#full-slider-nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+#full-slider-nav-left, #full-slider-nav-right {
+    display: inline-block;
+    height: 0;
+    width: 0;
+    margin-left: 15px;
+    border: 20px solid transparent;
+    cursor: pointer;
+}
+#full-slider-nav-left {
+    border-right-color: #BBB;
+}
+#full-slider-nav-left:hover {
+    border-right-color: #999;
+}
+#full-slider-nav-right {
+    border-left-color: #BBB;
+}
+#full-slider-nav-right:hover {
+    border-left-color: #999;
+}
+/* styles below are only for this example */
+#full-slider .slide-panel {
+    background-color: #555;
+    color: #DDD;
+}
+</style>
+
+</head>
+
+<div id="full-slider-wrapper">
+    <div id="full-slider">
+
+        <div class="slide-panel active">
+        Panel 1 content here
+        </div>
+
+        <div class="slide-panel">
+        Panel 2 content here
+        </div>
+
+        <div class="slide-panel">
+        Panel 3 content here
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
+"></script>
+<script type="text/javascript">
+$(function() {
+    function slidePanel( newPanel, direction ) {
+        // define the offset of the slider obj, vis a vis the document
+        var offsetLeft = $slider.offset().left;
+        // offset required to hide the content off to the left / right
+        var hideLeft = -1 * ( offsetLeft + $slider.width() );
+        var hideRight = $(window).width() - offsetLeft;
+        // change the current / next positions based on the direction of the animation
+        if ( direction == 'left' ) {
+            currPos = hideLeft;
+            nextPos = hideRight;
+        }
+        else {
+            currPos = hideRight;
+            nextPos = hideLeft;
+        }
+        // slide out the current panel, then remove the active class
+        $slider.children('.slide-panel.active').animate({
+            left: currPos
+        }, 500, function() {
+            $(this).removeClass('active');
+        });
+        // slide in the next panel after adding the active class
+        $( $sliderPanels[newPanel] ).css('left', nextPos).addClass('active').animate({
+            left: 0
+        }, 500 );
+    }
+    var $slider = $('#full-slider');
+    var $sliderPanels = $slider.children('.slide-panel');
+    var $navWrap = $('<div id="full-slider-nav"></div>').appendTo( $slider );
+    var $navLeft = $('<div id="full-slider-nav-left"></div>').appendTo( $navWrap );
+    var $navRight = $('<div id="full-slider-nav-right"></div>').appendTo( $navWrap );
+    var currPanel = 0;
+    $navLeft.click(function() {
+        currPanel--;
+        // check if the new panel value is too small
+        if ( currPanel < 0 ) currPanel = $sliderPanels.length - 1;
+        slidePanel(currPanel, 'right');
+    });
+    $navRight.click(function() {
+        currPanel++;
+        // check if the new panel value is too big
+        if ( currPanel >= $sliderPanels.length ) currPanel = 0;
+        slidePanel(currPanel, 'left');
+    });
+});
+</script>
+
+</body>
+</html>
